@@ -5,29 +5,19 @@
  */
 #include "BaseScreen.h"
 
-BaseScreen::BaseScreen( wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, long style ) :
-wxPanel( parent, id, pos, size, style )
+BaseScreen::BaseScreen( wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, long style )
 {
-	wxImage::AddHandler( new wxPNGHandler );
-   wxBoxSizer* bSizer1;
-   bSizer1 = new wxBoxSizer( wxVERTICAL );
+    Create( parent, id, pos, size, style );
+    wxImage::AddHandler( new wxPNGHandler );
 
+    m_drawImage = m_bgImage.LoadFile( g_pathToBgImage, wxBITMAP_TYPE_PNG );
 
-   bSizer1->Add( 0, 0, 1, wxEXPAND, 5 );
+    if (m_drawImage) {
+        SetBackgroundBitmap(m_bgImage);
+    }
 
-   m_bgImage = new wxStaticBitmap( this, wxID_ANY, wxBitmap( g_pathToBgImage, wxBITMAP_TYPE_PNG ), wxDefaultPosition, wxDefaultSize, 0 );
-   m_bgImage->SetMinSize( g_bgImageSize );
-   m_bgImage->SetMaxSize( g_bgImageSize );
-
-   bSizer1->Add( m_bgImage, 0, wxALIGN_CENTER, 5 );
-
-
-   bSizer1->Add( 0, 0, 1, wxEXPAND, 5 );
-
-
-   this->SetSizer( bSizer1 );
-   this->Layout();
 }
+
 
 BaseScreen::~BaseScreen()
 {

@@ -7,14 +7,17 @@
 #define BASE_SCREEN_H
 
 #include <wx/wx.h>
+#include <wx/custombgwin.h>
+
 #include "global_settings.h"
 
-class BaseScreen : public wxPanel
+class BaseScreen : public wxCustomBackgroundWindow<wxPanel>
 {
    private:
 
    protected:
-      wxStaticBitmap* m_bgImage;
+      wxBitmap m_bgImage;
+      bool m_drawImage;
 
    public:
 
