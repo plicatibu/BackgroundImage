@@ -17,7 +17,7 @@ class MainScreen : public BaseScreen
 	private:
 
 	protected:
-        wxStaticText *m_txtTitle;
+        TransparentStaticText *m_txtTitle;
 		wxButton *m_btnFile;
 		wxButton *m_btnImport;
 		wxButton *m_btnExport;

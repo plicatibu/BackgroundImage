@@ -1,3 +1,8 @@
+/**
+ * @author Marcio Andrey Oliveira <plicatibu@plicatibu.com>
+ * @copyright 2014 Plicatibu Software Developer Ltda.
+ * @license {@link https://github.com/plicatibu/BackgroundImage/blob/master/LICENSE.md|MIT License}
+ */
 #include "BaseScreen.h"
 
 

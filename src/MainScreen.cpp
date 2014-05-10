@@ -7,6 +7,7 @@
 #include <wx/sizer.h>
 
 #include "MainScreen.h"
+#include "TransparentStaticText.h"
 
 MainScreen::MainScreen( wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, long style ) :
 BaseScreen( parent, id, pos, size, style )
@@ -26,7 +27,7 @@ BaseScreen( parent, id, pos, size, style )
 
 
 	// Title - Start
-	m_txtTitle = new wxStaticText( this, wxID_ANY, g_mainMenuTitle, wxDefaultPosition, wxDefaultSize, 0 );
+	m_txtTitle = new TransparentStaticText ( this, wxID_ANY, g_mainMenuTitle, wxDefaultPosition, wxDefaultSize, 0 );
 	m_txtTitle->Wrap( -1 );
 	m_txtTitle->SetFont( g_fontTitle );
 	m_txtTitle->SetForegroundColour( g_TitleColor );
