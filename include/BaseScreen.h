@@ -1,8 +1,3 @@
-/**
- * @author Marcio Andrey Oliveira <plicatibu@plicatibu.com>
- * @copyright 2014 Plicatibu Software Developer Ltda.
- * @license {@link https://github.com/plicatibu/BackgroundImage/blob/master/LICENSE.md|MIT License}
- */
 #ifndef BASE_SCREEN_H
 #define BASE_SCREEN_H
 
@@ -13,17 +8,22 @@
 
 class BaseScreen : public wxCustomBackgroundWindow<wxPanel>
 {
-   private:
+    DECLARE_DYNAMIC_CLASS (BaseScreen)
 
-   protected:
-      wxBitmap m_bgImage;
-      bool m_drawImage;
+	private:
 
-   public:
+	protected:
+		wxBitmap m_bgImage;
+		bool m_drawImage;
+		int m_xPos;
 
-      BaseScreen( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = g_appSize, long style = wxTAB_TRAVERSAL );
-      virtual ~BaseScreen();
+	public:
 
+		BaseScreen();
+		BaseScreen( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = g_appSize, long style = wxTAB_TRAVERSAL );
+		virtual ~BaseScreen();
+		void OnPaint(wxPaintEvent& event);
+		DECLARE_EVENT_TABLE()
 };
 
 #endif //BASE_SCREEN_H
